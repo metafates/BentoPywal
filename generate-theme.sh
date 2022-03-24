@@ -1,5 +1,6 @@
 . ~/.cache/wal/colors.sh
 
+# Your path for Bento here
 BENTO_DIR="$HOME/Projects/Bento"
 
 cat > "$BENTO_DIR/app.css" << EOF
