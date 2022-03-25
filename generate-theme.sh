@@ -1,7 +1,15 @@
+#!/bin/bash
 . ~/.cache/wal/colors.sh
 
 # Your path for Bento here
 BENTO_DIR="$HOME/Projects/Bento"
+BG_IMAGE=$(cat ~/.cache/wal/wal)
+BG_EXT=${BG_IMAGE##*.}
+
+cp $BG_IMAGE "$BENTO_DIR/assets/background.$BG_EXT"
+
+# BENTO_PYWAL=$(echo $BENTO_CSS | sed 's/--accent:*;/--accent: $color11;/g')
+# echo $BENTO_PYWAL
 
 cat > "$BENTO_DIR/app.css" << EOF
 /* 
@@ -28,18 +36,18 @@ cat > "$BENTO_DIR/app.css" << EOF
 
   /* Fonts Color */
   --fg: $foreground; /* Foreground color */
-  --sfg: #494949; /* Sceondary Foreground color */
+  --sfg: $foreground; /* Sceondary Foreground color */
 
   /* Light Colors  */
-  --accent: #57a0d9; /* Hover color */
+  --accent: $color11; /* Hover color */
   --background: $background; /* Background color */
-  --cards: #e4e6e6; /* Cards color */
+  --cards: $background; /* Cards color */
 
   /* Image background  */
-  --imgbg: url(assets/background.jpg); /* Image URL */
+  --imgbg: url(assets/background.$BG_EXT); /* Image URL */
   --imgcol: linear-gradient(
-    rgba(255, 255, 255, 0.7),
-    rgba(255, 255, 255, 0.7)
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0)
   ); /* Filter color */
 }
 
@@ -47,17 +55,18 @@ cat > "$BENTO_DIR/app.css" << EOF
   /* Dark Colors  */
   --accent: $color11; /* Hover color */
   --background: $background; /* Background color */
-  --cards: $color1; /* Cards color */
+  /*--cards: $color1;*/ /* Cards color */
+  --cards: $color4; /* Cards color */
 
   /* Fonts Color */
   --fg: $foreground; /* Foreground color */
-  --sfg: $color5; /* Secondary Foreground color */
+  --sfg: $foreground; /* Secondary Foreground color */
 
   /* Image background  */
-  --imgcol: linear-gradient(
+  /*--imgcol: linear-gradient(
     rgba(0, 0, 0, 0.85),
     rgba(0, 0, 0, 0.85)
-  ); /* Filter color */
+  );*/ /* Filter color */
 }
 
 /* 
