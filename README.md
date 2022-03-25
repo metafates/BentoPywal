@@ -7,8 +7,10 @@ Generates [pywal](https://github.com/dylanaraps/pywal) theme for [Bento](https:/
 
 ## Usage
 
-Run the command below. But you have to specify path for your folder with Bento.
-To do it just open  `generate-theme.sh` and change `BENTO_DIR` variable
-```bash
-./generate-theme.sh
-```
+1. Open `generate-theme.sh` with any editor
+2. Change `BENTO_DIR` varibale to the path for Bento source
+3. Run `./generate-theme.sh`
+4. ???
+5. PROFIT!
+
+You should run this script each time you update your pywal colors

@@ -2,14 +2,17 @@
 . ~/.cache/wal/colors.sh
 
 # Your path for Bento here
-BENTO_DIR="$HOME/Projects/Bento"
+BENTO_DIR=""
 BG_IMAGE=$(cat ~/.cache/wal/wal)
 BG_EXT=${BG_IMAGE##*.}
 
-cp $BG_IMAGE "$BENTO_DIR/assets/background.$BG_EXT"
+if [[ $BENTO_DIR -eq "" ]]; then
+    echo "Specify bento source folder first!"
+    exit 1;
+fi
 
-# BENTO_PYWAL=$(echo $BENTO_CSS | sed 's/--accent:*;/--accent: $color11;/g')
-# echo $BENTO_PYWAL
+# Move wallpaper to the bento assets
+cp $BG_IMAGE "$BENTO_DIR/assets/background.$BG_EXT"
 
 cat > "$BENTO_DIR/app.css" << EOF
 /* 
